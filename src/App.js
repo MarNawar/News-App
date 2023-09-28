@@ -4,43 +4,74 @@ import React, { Component } from 'react'
 import Navbar from './components/Navbar'
 import News from './components/News'
 import About from './components/About'
+import LoadingBar from 'react-top-loading-bar'
+
 
 
 export default class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      progress:0,
+    };
+  }
+
+
+
+  keepProgress(){
+    setTimeout(() => {
+      this.setState({progress:this.state.progress+20})
+    }, 100);
+    setTimeout(() => {
+      this.setState({progress:this.state.progress+30})
+    }, 300);
+    setTimeout(() => {
+      this.setState({progress:this.state.progress+50})
+    }, 500); 
+    setTimeout(() => {
+      this.setState({progress:0})
+    }, 750);  
+
+  }
+  
 
   render() {
     return (
       <Router>
         <Navbar/>
+        <LoadingBar
+          color='#f11946'
+          progress={this.state.progress}
+        />
         <Routes>
           <Route exact path ='/' element={
             <>
-              <News key="general" pageSize={6} country='in' catagory='general'/>
+              <News keepProgress={()=>this.keepProgress()}  key="general" pageSize={6} country='in' catagory='general'/>
             </>
           }></Route>
           <Route exact path ='business' element={
             <>
-              <News key="business" pageSize={6} country='in' catagory='business'/>
+              <News keepProgress={()=>this.keepProgress()}  key="business" pageSize={6} country='in' catagory='business'/>
             </>
           }></Route>
           <Route exact path ='/sports' element={
             <>
-              <News key="sports" pageSize={6} country='in' catagory='sports'/>
+              <News keepProgress={()=>this.keepProgress()}  key="sports" pageSize={6} country='in' catagory='sports'/>
             </>
           }></Route>
           <Route exact path ='/entertainment' element={
             <>
-              <News key="entertainment" pageSize={6} country='in' catagory='entertainment'/>
+              <News keepProgress={()=>this.keepProgress()}  key="entertainment" pageSize={6} country='in' catagory='entertainment'/>
             </>
           }></Route>
           <Route exact path ='/science' element={
             <>
-              <News key="science" pageSize={6} country='in' catagory='science'/>
+              <News keepProgress={()=>this.keepProgress()}  key="science" pageSize={6} country='in' catagory='science'/>
             </>
           }></Route>
           <Route exact path ='/health' element={
             <>
-              <News key="health" pageSize={6} country='in' catagory='health'/>
+              <News keepProgress={()=>this.keepProgress()}  key="health" pageSize={6} country='in' catagory='health'/>
             </>
           }></Route>
           <Route exact path ='/about' element={
@@ -138,7 +169,7 @@ export default class App extends Component {
 //         <div className='row'>
 //           {this.state.articles.map(({title,description,urlToImage,url})=>{
 //             return <div className='col-sm' key = {url}>
-//               <NewsItem title={title} description={description} imageURl={urlToImage} newsUrl={url}/>
+//               <News keepProgress={()=>this.keepProgress()} Item title={title} description={description} imageURl={urlToImage} newsUrl={url}/>
 //             </div>}
 //           )}
 //         </div>

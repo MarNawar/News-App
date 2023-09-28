@@ -45,13 +45,14 @@ export default class News extends Component {
   }
   
   componentDidMount(){
+    this.props.keepProgress()
     this.update(this.state.page)
   }
 
   fetchMoreData = () => {
     setTimeout(() => {
       this.update(this.state.page+1)
-    }, 3000);
+    }, 1000);
   };
   
   render() {
@@ -69,7 +70,7 @@ export default class News extends Component {
         <div className="container my-3">
           <div className='row'>
             {this.state.articles.map(({title,description,urlToImage,url,author,publishedAt,source:{name}})=>{
-              return <div className='col-3' key = {url}>
+              return <div className='col-sm' key = {url}>
                 <NewsItem title={title} description={description} imageURl={urlToImage} newsUrl={url} author={author} date={publishedAt} source={name}/>
               </div>}
             )}
