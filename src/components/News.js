@@ -41,7 +41,7 @@ function News({keepProgress, pageSize, country, catagory}) {
   };
   return (
     <>
-      <h1 className='text-center my-3'>{catagory==='general'? 'Top Headlines' :`Top ${capatalised(catagory)} Headlines`}</h1>
+      <h1 className='text-center' style={{margin: '35px',marginTop:'90px'}}>{catagory==='general'? 'Top Headlines' :`Top ${capatalised(catagory)} Headlines`}</h1>
       
       <InfiniteScroll
         dataLength={articles.length}
@@ -68,6 +68,7 @@ News.defaultProps={
   pageSize:8,
   catagory:'general'
 }
+
 News.propTypes={
   country:PropTypes.string.isRequired,
   pageSize:PropTypes.number.isRequired,
