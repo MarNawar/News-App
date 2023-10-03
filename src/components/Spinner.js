@@ -1,4 +1,3 @@
-// import React, { Component } from 'react'
 import loading from '../images/loading-gif.gif'
 
 function Spinner() {
