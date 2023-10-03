@@ -6,17 +6,10 @@ import News from './components/News'
 import About from './components/About'
 import LoadingBar from 'react-top-loading-bar'
 
-
-
 export default class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      progress:0,
-    };
-  }
-
-
+  state = {
+    progress:0,
+  };
 
   keepProgress(){
     setTimeout(() => {
