@@ -5,7 +5,7 @@ import Spinner from './Spinner';
 import InfiniteScroll from "react-infinite-scroll-component";
 
 function News({keepProgress, pageSize, country, catagory}) {
-  const apiKey = process.env.REACT_APP_NEWS_API;
+  //const apiKey = process.env.REACT_APP_NEWS_API;
 
   const [articles,setArticles] = useState([])
   const [loading,setLoading] = useState(false)
@@ -17,7 +17,7 @@ function News({keepProgress, pageSize, country, catagory}) {
 
   async function update(pageNO){
     setLoading(true)
-    let url= `https://newsapi.org/v2/top-headlines?country=${country}&category=${catagory}&apiKey=${apiKey}&page=${pageNO}&pageSize=${pageSize}`;
+    let url= `https://newsapi.org/v2/top-headlines?country=${country}&category=${catagory}&apiKey='27f835bb27d147ff81f6e4486119b270'&page=${pageNO}&pageSize=${pageSize}`;
 
     let data = await fetch(url);
     let parseData = await data.json();
