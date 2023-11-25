@@ -38,7 +38,7 @@ function App(){
             <News keepProgress={()=>keepProgress()}  key="general" pageSize={6} country='in' catagory='general'/>
           </>
         }></Route>
-        <Route exact path ='business' element={
+        <Route exact path ='/business' element={
           <>
             <News keepProgress={()=>keepProgress()}  key="business" pageSize={6} country='in' catagory='business'/>
           </>
