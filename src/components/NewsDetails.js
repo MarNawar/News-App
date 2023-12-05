@@ -1,7 +1,7 @@
-import React from 'react'
+import { useEffect} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 
-function NewsDetails() {
+function NewsDetails({keepProgress}) {
 
   const location = useLocation()
   const {title, description, imageURl,newsUrl,author,date,source, active} = location.state;
@@ -10,6 +10,10 @@ function NewsDetails() {
   function goBack(){
     navigate(active);
   }
+
+  useEffect(()=>{
+    keepProgress();
+  },[])
 
 
 
@@ -26,6 +30,7 @@ function NewsDetails() {
             <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">{title!==null?`${title}`: "...." }</h1>
             <p className="lead">{description!==null?`${description}`: "..............................................................................................................................................................................................................................................." }</p>
             <p className="card-text"><small className="text-body-secondary"> By {author===null?"Unknown":author} on {date===null?"recent": new Date(date).toGMTString()  } </small></p>
+            <p className="card-text"><strong className="text-body-secondary">Source: {source===null?"Unknown":source} </strong></p>
             <div className="d-grid gap-2 d-md-flex justify-content-md-start">
               <a target="_blank" className="btn btn-primary btn-lg px-4 me-md-2" href={newsUrl}>Go to Source</a>
               <button type="button" className="btn btn-outline-secondary btn-lg px-4" onClick={goBack}>Back</button>

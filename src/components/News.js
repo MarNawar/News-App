@@ -80,7 +80,7 @@ function News(props) {
           
           {articles.map(({title,description,urlToImage,url,author,publishedAt,source:{name: name1}})=>{
             return <div className='col' key = {url}>
-              <GridNewsItem title={title} description={description} imageURl={urlToImage} newsUrl={url} author={author} date={publishedAt} source={name1}  active={navBarActive}/>
+              <GridNewsItem title={title} description={description} imageURl={urlToImage} newsUrl={url} author={author} date={publishedAt} source={name1}  active={navBarActive} />
             </div>}
           )}
 
@@ -94,7 +94,7 @@ function News(props) {
           
           {articles.map(({title,description,urlToImage,url,author,publishedAt,source:{name: name1}})=>{
             return <div className='col-6 col-md-5' key = {url}>
-              <ListNewsItem title={title} description={description} imageURl={urlToImage} newsUrl={url} author={author} date={publishedAt} source={name1} active={navBarActive}/>
+              <ListNewsItem title={title} description={description} imageURl={urlToImage} newsUrl={url} author={author} date={publishedAt} source={name1} active={navBarActive} keepProgress={()=>keepProgress()}/>
             </div>}
           )}
 

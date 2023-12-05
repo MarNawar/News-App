@@ -4,7 +4,7 @@ function ListNewsItem(props){
   const {title, description, imageURl,newsUrl,author,date,source, active} = props;
   const navigate = useNavigate();
   function navigateTo(){
-    navigate("/NewsDetail", {state: {title, description, imageURl,newsUrl,author,date,source, active} });
+    navigate("/NewsDetail", {state: {title, description, imageURl,newsUrl,author,date,source, active } });
   }
   return (
     <>

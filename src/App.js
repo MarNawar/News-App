@@ -70,7 +70,7 @@ function App(){
           </>
         }></Route>
         <Route exact path ='/NewsDetail' element={
-            <NewsDetails/>
+            <NewsDetails keepProgress={()=>keepProgress()}/>
         }></Route>
       </Routes>
     </Router>
