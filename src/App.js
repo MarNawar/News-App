@@ -4,10 +4,11 @@ import React, { useState } from 'react'
 import Navbar from './components/Navbar'
 import News from './components/News'
 import About from './components/About'
+import NewsDetails from './components/NewsDetails';
 import LoadingBar from 'react-top-loading-bar'
 
 function App(){
-  const [ progress, setProgress] = useState(0)
+  const [ progress, setProgress] = useState(0);
 
   function keepProgress(){
     setTimeout(() => {
@@ -67,6 +68,9 @@ function App(){
           <>
             <About/>
           </>
+        }></Route>
+        <Route exact path ='/NewsDetail' element={
+            <NewsDetails/>
         }></Route>
       </Routes>
     </Router>
