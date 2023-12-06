@@ -1,10 +1,16 @@
 import { useEffect} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useFirebase } from '../context/Firebase';
+
 
 function NewsDetails({keepProgress}) {
 
   const location = useLocation()
-  const {title, description, imageURl,newsUrl,author,date,source, active} = location.state;
+  const {title, description, imageURl,newsUrl,author,date,source,content, active} = location.state;
+  const firebase = useFirebase();
+
+
+  
 
   const navigate = useNavigate();
   function goBack(){
@@ -28,11 +34,12 @@ function NewsDetails({keepProgress}) {
           </div>
           <div className="col-lg-6">
             <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">{title!==null?`${title}`: "...." }</h1>
-            <p className="lead">{description!==null?`${description}`: "..............................................................................................................................................................................................................................................." }</p>
+            <p className="card-text">{description!==null?`${description}`: "..............................................................................................................................................................................................................................................." }</p>
+            <p className="lead">{content!==null?`${content.slice(0,200)}`: "......................................................................................................................................................................................................................................................................................................................................................." }</p>
             <p className="card-text"><small className="text-body-secondary"> By {author===null?"Unknown":author} on {date===null?"recent": new Date(date).toGMTString()  } </small></p>
             <p className="card-text"><strong className="text-body-secondary">Source: {source===null?"Unknown":source} </strong></p>
             <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-              <a target="_blank" className="btn btn-primary btn-lg px-4 me-md-2" href={newsUrl}>Go to Source</a>
+              <a target="_blank" className="btn btn-primary btn-lg px-4 me-md-2" href={newsUrl} rel="noreferrer">Go to Source</a>
               <button type="button" className="btn btn-outline-secondary btn-lg px-4" onClick={goBack}>Back</button>
             </div>
           </div>

@@ -7,6 +7,7 @@ import About from './components/About'
 import NewsDetails from './components/NewsDetails';
 import LoadingBar from 'react-top-loading-bar'
 
+
 function App(){
   const [ progress, setProgress] = useState(0);
 
@@ -24,7 +25,7 @@ function App(){
       setProgress(0)
     }, 750);  
 
-  }
+  }  
 
   return (
     <Router>
@@ -70,7 +71,7 @@ function App(){
           </>
         }></Route>
         <Route exact path ='/NewsDetail' element={
-            <NewsDetails keepProgress={()=>keepProgress()}/>
+            <NewsDetails keepProgress={()=>keepProgress()} />
         }></Route>
       </Routes>
     </Router>

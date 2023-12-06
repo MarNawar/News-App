@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 
 function ListNewsItem(props){
-  const {title, description, imageURl,newsUrl,author,date,source, active} = props;
+  const {title, description, imageURl,newsUrl,author,date,source,content, active} = props;
   const navigate = useNavigate();
   function navigateTo(){
-    navigate("/NewsDetail", {state: {title, description, imageURl,newsUrl,author,date,source, active } });
+    navigate("/NewsDetail", {state: {title, description, imageURl,newsUrl,author,date,source,content, active } });
   }
   return (
     <>

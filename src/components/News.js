@@ -63,8 +63,7 @@ function News(props) {
         {catagory==='general'? 'Top Headlines' :`Top ${capatalised(catagory)} Headlines`}
       </h1>
 
-      <button type="button" className="btn" onClick={changeLayout}>Favorite</button>
-      <button type="button" className="btn">List</button>
+      <button type="button" className="btn mx-5 btn-secondary" onClick={changeLayout}>{layout==='grid'?<i className="fa-solid fa-table-cells-large"></i>:<i className="fa-solid fa-bars"></i>}</button>
       
       <InfiniteScroll
         dataLength={articles.length}
@@ -78,9 +77,9 @@ function News(props) {
         <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-start'>
 
           
-          {articles.map(({title,description,urlToImage,url,author,publishedAt,source:{name: name1}})=>{
+          {articles.map(({title,description,urlToImage,url,author,publishedAt,source:{name: name1},content})=>{
             return <div className='col' key = {url}>
-              <GridNewsItem title={title} description={description} imageURl={urlToImage} newsUrl={url} author={author} date={publishedAt} source={name1}  active={navBarActive} />
+              <GridNewsItem title={title} description={description} imageURl={urlToImage} newsUrl={url} author={author} date={publishedAt} source={name1} content={content} active={navBarActive} keepProgress={()=>keepProgress()} />
             </div>}
           )}
 
@@ -92,9 +91,9 @@ function News(props) {
         <div className='row gy-4 justify-content-sm-center'>
 
           
-          {articles.map(({title,description,urlToImage,url,author,publishedAt,source:{name: name1}})=>{
+          {articles.map(({title,description,urlToImage,url,author,publishedAt,source:{name: name1}, content})=>{
             return <div className='col-6 col-md-5' key = {url}>
-              <ListNewsItem title={title} description={description} imageURl={urlToImage} newsUrl={url} author={author} date={publishedAt} source={name1} active={navBarActive} keepProgress={()=>keepProgress()}/>
+              <ListNewsItem title={title} description={description} imageURl={urlToImage} newsUrl={url} author={author} date={publishedAt} source={name1} content={content} active={navBarActive}  keepProgress={()=>keepProgress()}/>
             </div>}
           )}
 
