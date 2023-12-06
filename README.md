@@ -1,3 +1,9 @@
+You can get your daily news shots with News App.
+
+UseState hook and useEffect hook are used for state management.
+
+Used Bootstrap for making beautiful responsive UI. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
