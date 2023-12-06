@@ -36,13 +36,15 @@ function News(props) {
     setTotalResults(parseData.totalResults)
     // console.log(articles);
   }
-  
+
+// eslint-disable-next-line
   useEffect(()=>{
     document.title = catagory==='general'? 'NewsShots' :`${capatalised(catagory)}-NewsShots`
     keepProgress()
     update(page)
 
   },[])
+// eslint-disable-next-line
 
   function changeLayout(){
     setLayout((prev)=>{

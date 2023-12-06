@@ -1,13 +1,11 @@
 import { useEffect} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useFirebase } from '../context/Firebase';
 
 
 function NewsDetails({keepProgress}) {
 
   const location = useLocation()
   const {title, description, imageURl,newsUrl,author,date,source,content, active} = location.state;
-  const firebase = useFirebase();
 
 
   
@@ -20,7 +18,7 @@ function NewsDetails({keepProgress}) {
   useEffect(()=>{
     keepProgress();
   },[])
-
+// eslint-disable-next-line
 
 
   // console.log(title, description,imageURl,newsUrl,author,date, source)
