@@ -1,8 +1,8 @@
 You can get your daily news shots with News App.
 
-UseState hook and useEffect hook used for state management.
+UseState hook and useEffect hook are used for state management.
 
-Use bootstap for making beautiful responsive UI. 
+Used Bootstrap for making beautiful responsive UI. 
 
 # Getting Started with Create React App
 
